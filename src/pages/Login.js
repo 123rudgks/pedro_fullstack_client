@@ -10,7 +10,7 @@ function Login() {
 
   const login = () => {
     axios
-      .post("http://localhost:3001/auth/login", {
+      .post("https://pedrotech-full-stack-blog.herokuapp.com/auth/login", {
         username: username,
         password: password,
       })

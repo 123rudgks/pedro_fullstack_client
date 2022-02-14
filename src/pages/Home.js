@@ -18,7 +18,7 @@ function Home() {
       navigate("/login");
     } else {
       axios
-        .get("http://localhost:3001/posts", {
+        .get("https://pedrotech-full-stack-blog.herokuapp.com/posts", {
           headers: { accessToken: localStorage.getItem("accessToken") },
         })
         .then((response) => {
@@ -35,7 +35,7 @@ function Home() {
   const likeAPost = (PostId) => {
     axios
       .post(
-        "http://localhost:3001/likes",
+        "https://pedrotech-full-stack-blog.herokuapp.com/likes",
         { PostId: PostId },
         { headers: { accessToken: localStorage.getItem("accessToken") } }
       )

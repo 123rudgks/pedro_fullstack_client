@@ -15,10 +15,10 @@ function Post() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
+    axios.get(`https://pedrotech-full-stack-blog.herokuapp.com/posts/byId/${id}`).then((response) => {
       setPostObject(response.data);
     });
-    axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
+    axios.get(`https://pedrotech-full-stack-blog.herokuapp.com/comments/${id}`).then((response) => {
       setComments(response.data);
     });
   }, []);
@@ -26,7 +26,7 @@ function Post() {
   const addComment = () => {
     axios
       .post(
-        "http://localhost:3001/comments",
+        "https://pedrotech-full-stack-blog.herokuapp.com/comments",
         {
           commentBody: newComment,
           PostId: id,
@@ -53,7 +53,7 @@ function Post() {
 
   const deleteComment = (id) => {
     axios
-      .delete(`http://localhost:3001/comments/${id}`, {
+      .delete(`https://pedrotech-full-stack-blog.herokuapp.com/comments/${id}`, {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
         },
@@ -68,7 +68,7 @@ function Post() {
   };
   const deletePost = (id) => {
     axios
-      .delete(`http://localhost:3001/posts/${id}`, {
+      .delete(`https://pedrotech-full-stack-blog.herokuapp.com/posts/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then(() => {
@@ -85,7 +85,7 @@ function Post() {
       const newTitle = prompt("write new title");
       await axios
         .put(
-          "http://localhost:3001/posts/edit",
+          "https://pedrotech-full-stack-blog.herokuapp.com/posts/edit",
           { newTitle: newTitle, id: id },
           {
             headers: { accessToken: localStorage.getItem("accessToken") },
@@ -97,7 +97,7 @@ function Post() {
       const newBody = prompt("write new context");
       await axios
         .put(
-          "http://localhost:3001/posts/edit",
+          "https://pedrotech-full-stack-blog.herokuapp.com/posts/edit",
           { newBody: newBody, id: id },
           { headers: {accessToken: localStorage.getItem("accessToken") }}
         )

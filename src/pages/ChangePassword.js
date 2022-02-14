@@ -11,7 +11,7 @@ function ChangePassword() {
   const onSaveChange = () => {
     axios
       .put(
-        "http://localhost:3001/auth/changepassword",
+        "https://pedrotech-full-stack-blog.herokuapp.com/auth/changepassword",
         {
           oldPassword: oldPassword,
           newPassword: newPassword,
